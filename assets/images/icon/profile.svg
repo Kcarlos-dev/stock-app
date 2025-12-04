@@ -1,0 +1,54 @@
+<svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .skin { fill: #b0b0b0; }
+    .dead-eye { fill: #1e1e1e; }
+    .outline { stroke: #1e1e1e; stroke-width: 6; fill: none; }
+
+    .eyes, .left-eye, .right-eye {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    @keyframes slowBlink {
+      0%, 85%, 100% { transform: scaleY(1); }
+      88%, 92% { transform: scaleY(0.1); }
+    }
+
+    @keyframes paranoidLook {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(-4px, 0); }
+      50%  { transform: translate(4px, 0); }
+      75%  { transform: translate(-2px, 0); }
+      100% { transform: translate(0, 0); }
+    }
+
+    .eyes {
+      animation: paranoidLook 4s ease-in-out infinite;
+    }
+
+    .left-eye, .right-eye {
+      animation: slowBlink 3s ease-in-out infinite;
+    }
+    .right-eye { animation-delay: 0.1s; }
+  </style>
+
+  <!-- círculo gigante englobando tudo -->
+  <circle class="outline" cx="130" cy="130" r="120"/>
+
+  <!-- corpo -->
+  <ellipse class="skin" cx="130" cy="185" rx="70" ry="50"/>
+
+  <!-- cabeça menor -->
+  <circle class="skin" cx="130" cy="95" r="55"/>
+
+  <!-- olhos animados -->
+  <g class="eyes">
+    <g class="left-eye">
+      <ellipse class="dead-eye" cx="112" cy="95" rx="9" ry="12"/>
+    </g>
+
+    <g class="right-eye">
+      <ellipse class="dead-eye" cx="148" cy="95" rx="9" ry="12"/>
+    </g>
+  </g>
+</svg>
